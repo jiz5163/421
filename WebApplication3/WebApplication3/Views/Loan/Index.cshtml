@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebApplication3.Models.Loan>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>Loan</h4>
+    <hr />
+    @if(Model.Count() > 0)
+    {
+        <table class="table table-responsive table-striped">
+            <thead>
+                @Html.Label("Loan Name")
+            </thead>
+            <thead>
+                @Html.Label("Loan Amount")
+            </thead>
+            <thead>
+                @Html.Label("Interest Rate")
+            </thead>
+            @foreach(var loan in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => loan.LoanName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => loan.LoanAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => loan.LoanInterestRate)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+</div>       
+       
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }*@
+    @Html.ActionLink("Create", "Create", "Loan")
+    @Html.ActionLink("Back to List", "Index", "Home")
+</p>
